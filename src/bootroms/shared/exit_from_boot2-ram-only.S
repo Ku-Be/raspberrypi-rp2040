@@ -20,7 +20,7 @@ check_return:
 .global vector_into_flash
 .thumb_func
 vector_into_flash:
-    ldr r0, =(XIP_BASE + 0x100)
+    ldr r0, =(SRAM_BASE + 0x100)
     ldr r1, =(PPB_BASE + M0PLUS_VTOR_OFFSET)
     str r0, [r1]
     ldmia r0, {r0, r1}

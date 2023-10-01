@@ -264,8 +264,9 @@ configure_ssi:
 // Bus accesses to the XIP window will now be transparently serviced by the
 // external flash on cache miss. We are ready to run code from flash.
 
-// Pull in standard exit routine
-#include "shared/exit_from_boot2.S"
+// standard exit routine from "exit_from_boot2.S"
+// gets exported as a global symbol
+    b vector_into_flash
 
 // Common functions
 #include "shared/wait_ssi_ready.S"
