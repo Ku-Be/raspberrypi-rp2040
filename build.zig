@@ -154,9 +154,9 @@ pub fn getBootrom(b: *std.Build, rom: BootROM, storage: Storage) Stage2Bootloade
                 .ram => suffix = "-ram-only",
             }
 
-            rom_exe.setLinkerScript(.{ .path = build_root ++ std.fmt("/src/bootroms/shared/stage2{s}.ld", .{suffix}) });
+            rom_exe.setLinkerScript(.{ .path = build_root ++ b.fmt("/src/bootroms/shared/stage2{s}.ld", .{suffix}) });
             rom_exe.addAssemblyFile(.{ .path = rom_path });
-            rom_exe.addAssemblyFile(.{ .path = build_root ++ std.fmt("/src/bootroms/shared/exit_from_boot2{s}.S", .{suffix}) });
+            rom_exe.addAssemblyFile(.{ .path = build_root ++ b.fmt("/src/bootroms/shared/exit_from_boot2{s}.S", .{suffix}) });
 
             break :blk rom_exe;
         },
