@@ -148,7 +148,7 @@ pub fn getBootrom(b: *std.Build, rom: BootROM, storage: Storage) Stage2Bootloade
             });
             rom_exe.linkage = .static;
 
-            var suffix: []u8 = undefined;
+            var suffix: []const u8 = undefined;
             switch (storage) {
                 .flash => suffix = "",
                 .ram => suffix = "-ram-only",
